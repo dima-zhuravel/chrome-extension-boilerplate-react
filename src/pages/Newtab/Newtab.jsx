@@ -1,17 +1,19 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.css';
 
-import Menu from './components/Menu';
-import GridPortals from './components/GridPortals';
+import Menu from '../../Components/Menu';
+import GridPortals from '../../Components/GridPortals';
+import CardGenerator from '../../Components/CardGenerator';
 
 import './Newtab.css';
 import './Newtab.scss';
 
 const Newtab = () => {
     return (
-        <div className='App'>
+        <div className='application-root'>
             <Menu />
-            <GridPortals />
+            {/* <GridPortals /> */}
+            <CardGenerator />
         </div>
     );
 };

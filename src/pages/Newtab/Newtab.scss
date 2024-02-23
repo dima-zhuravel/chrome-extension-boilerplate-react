@@ -1,5 +1,9 @@
+:root {
+    --font-family: 'Comic Sans MS', 'sans-serif', Arial;
+}
+
 * {
-    font-family: 'Comic Sans MS', 'sans-serif', Arial;
+    font-family: var(--font-family);
 }
 
 body {
@@ -32,7 +36,7 @@ body {
         align-items: center;
         background: #282c34;
         box-shadow: inset 0px 0px 10px 1px #273f5c, 0px 0px 10px 1px #273f5c;
-        margin: 10px 0;
+        margin: 30px 0;
 
         .header__title-text {
             margin-right: 2em;
@@ -47,8 +51,9 @@ body {
     }
 }
 
-.portal__section {
+.application-root {
     .ui.icon.header {
+        display: block;
         color: #40dbf4;
         margin: 30px auto;
     }
@@ -56,7 +61,6 @@ body {
     .header {
         position: relative;
         width: 100%;
-        max-width: 75%;
 
         &::before {
             content: '';
@@ -68,6 +72,12 @@ body {
             background-color: #273f5c;
             box-shadow: 0px 0px 10px 5px #273f5c;
         }
+    }
+}
+
+.portal__section {
+    .header {
+        max-width: 75%;
     }
 
     .ui.grid {
@@ -90,7 +100,7 @@ body {
         aspect-ratio: 1;
 
         &:hover {
-            box-shadow: inset 0px 0px 10px 1px #273f5c, 0px 0px 10px 4px #40dbf4;
+            box-shadow: inset 0px 0px 20px 20px #282c34, 0px 0px 10px 4px #40dbf4;
         }
     }
 
@@ -111,4 +121,76 @@ body {
 
 .ui.grid > .row > .column {
     padding-inline: 5rem;
+}
+
+.application-root .card-gen {
+    max-width: 75%;
+    margin: 0 auto;
+
+    .card-gen__input {
+        margin-right: 20px;
+
+        &.input input {
+            background-color: #282c34;
+            border: 3px solid #273f5c;
+            color: #40dbf4;
+            font-family: var(--font-family);
+            box-shadow: inset 0px 0px 10px 1px #273f5c, 0px 0px 10px 1px #273f5c;
+
+            &:focus,
+            &:hover {
+                border-color: #40dbf4;
+            }
+        }
+    }
+
+    .icon {
+        color: #40dbf4;
+        background-color: transparent;
+    }
+
+    .card-gen__section {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .card-gen__section--inner {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-gen__section--input {
+        margin-bottom: 20px;
+    }
+
+    .card-gen__section--result {
+        border: 3px solid #273f5c;
+        line-height: 1em;
+        color: #40dbf4;
+        box-shadow: inset 0px 0px 10px 1px #273f5c, 0px 0px 10px 1px #273f5c;
+        font-size: 3em;
+        padding: 20px 40px;
+        margin-right: 20px;
+    }
+
+    .card-gen__section--copy {
+        font-size: 2.3em;
+    }
+
+    .button {
+        border: 3px solid #273f5c;
+        color: #40dbf4 !important;
+        font-family: var(--font-family);
+        box-shadow: inset 0px 0px 10px 1px #273f5c, 0px 0px 10px 1px #273f5c;
+
+        &:hover,
+        &:focus {
+            background-color: #282c34 !important;
+            color: #40dbf4 !important;
+            border-color: #40dbf4;
+        }
+    }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridRow, GridColumn, Grid, Image } from 'semantic-ui-react';
+import { GridRow, GridColumn, Grid } from 'semantic-ui-react';
 import { uid } from 'react-uid';
 
 import HeadTitle from '../HeadTitle';
