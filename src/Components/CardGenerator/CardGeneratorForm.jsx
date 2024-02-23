@@ -37,17 +37,17 @@ const CardGeneratorForm = () => {
                     defaultValue={bin}
                     onChange={(e) => setBin(e.target.value)}
                     placeholder='BIN'
-                    className='card-gen__input card-gen__number'
+                    className='card-gen__item card-gen__input card-gen__number'
                     icon={<Icon name='credit card outline' />}
                 />
                 <Input
                     defaultValue={length.toString()}
                     onChange={(e) => setLength(parseInt(e.target.value, 10))}
                     placeholder='Card Length'
-                    className='card-gen__input card-gen__digits'
+                    className='card-gen__item card-gen__input card-gen__digits'
                     icon={<Icon name='paw' />}
                 />
-                <Button onClick={onClickHandler} content='GENERATE' basic size='medium' />
+                <Button onClick={onClickHandler} content='GENERATE' basic size='medium' className='card-gen__item' />
             </div>
             {cardNumber && !copied && (
                 <div className='card-gen__section--inner card-gen__section--output'>

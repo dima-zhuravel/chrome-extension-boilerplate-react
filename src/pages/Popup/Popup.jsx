@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import 'semantic-ui-css/semantic.css';
 
-import logo from '../../assets/img/logo.svg';
+import Menu from '../../Components/Menu';
+import GridPortals from '../../Components/GridPortals';
+import CardGenerator from '../../Components/CardGenerator';
+import GlobalStateProvider from '../../Components/GlobalStateProvider';
+import GlobalStateContext from '../../store/context';
+
 import './Popup.css';
+import './Popup.scss';
 
-const Popup = () => {
+const PopupContent = () => {
+    const { state } = useContext(GlobalStateContext);
+
     return (
-        <div className='App'>
-            <header className='App-header'>
-                <img src={logo} className='App-logo' alt='logo' />
-                <p>HELLO WORLD!</p>
-            </header>
+        <div className='application-root'>
+            <Menu />
+            {state.navigation.activeMenu === 'home' && <GridPortals />}
+            {state.navigation.activeMenu === 'creditCard' && <CardGenerator />}
         </div>
     );
 };
+
+const Popup = () => (
+    <GlobalStateProvider>
+        <PopupContent />
+    </GlobalStateProvider>
+);
 
 export default Popup;
