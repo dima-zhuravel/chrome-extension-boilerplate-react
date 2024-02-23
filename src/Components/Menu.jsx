@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { MenuItem, Icon, Menu } from 'semantic-ui-react';
 
-const MenuExampleLabeledIcons = () => {
-    const [activeItem, setActiveItem] = useState('home');
+import GlobalStateContext from '../store/context';
+import { setActiveMenu } from '../store/actions';
 
-    const handleItemClick = (e, { name }) => setActiveItem(name);
+const MenuComponent = () => {
+    const [activeItem, setActiveItem] = useState('home');
+    const { dispatch } = useContext(GlobalStateContext);
+
+    const handleItemClick = (e, { name }) => {
+        dispatch(setActiveMenu(name));
+        setActiveItem(name);
+    };
 
     return (
         <Menu icon='labeled'>
@@ -18,11 +25,7 @@ const MenuExampleLabeledIcons = () => {
                 Card
             </MenuItem>
 
-            <MenuItem
-                name='soon'
-                // active={activeItem === 'soon'}
-                // onClick={handleItemClick}
-            >
+            <MenuItem name='soon'>
                 <Icon name='ellipsis horizontal' />
                 Soon
             </MenuItem>
@@ -30,4 +33,4 @@ const MenuExampleLabeledIcons = () => {
     );
 };
 
-export default MenuExampleLabeledIcons;
+export default MenuComponent;

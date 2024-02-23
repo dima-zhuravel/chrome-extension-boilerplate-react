@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, Icon, Input, Button } from 'semantic-ui-react';
+import { Icon, Input, Button } from 'semantic-ui-react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { generate, luhnChk } from '../../helpers/cardGenerator';
