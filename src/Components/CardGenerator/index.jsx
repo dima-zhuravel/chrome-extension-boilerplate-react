@@ -5,7 +5,7 @@ import HeadTitle from '../HeadTitle';
 
 const CardGenerator = () => (
     <div className='card-gen'>
-        <HeadTitle title='GENERATOR' icon='medapps' />
+        <HeadTitle title='CARD NUMBER GENERATOR' icon='medapps' />
         <CardGeneratorForm />
     </div>
 );

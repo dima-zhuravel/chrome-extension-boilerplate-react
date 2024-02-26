@@ -12,6 +12,10 @@ body {
 
 .ui.menu {
     background-color: #273f5c;
+
+    &:first-child {
+        margin: 0;
+    }
 }
 
 .ui.icon.menu .item {
@@ -73,6 +77,17 @@ body {
         position: relative;
         width: 100%;
     }
+
+    .tooltip {
+        border: 1px solid #40dbf4;
+        background-color: #282c34;
+
+        .react-tooltip-arrow {
+            border: 1px solid #40dbf4;
+            border-width: 0 1px 1px 0;
+            border-width: 0 1px 1px 0;
+        }
+    }
 }
 
 .portal__section {
@@ -116,6 +131,7 @@ body {
         border-radius: 20%;
         background-color: #253c57;
         box-shadow: inset 0 0 20px 20px #282c34, 0 0 4px 1px #40dbf4;
+
         aspect-ratio: 1;
 
         &:hover {
@@ -123,8 +139,42 @@ body {
         }
     }
 
-    .grid-item__link {
+    .grid-item__wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
         color: #40dbf4;
+    }
+
+    .grid-item__links-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 20%;
+
+        &:hover {
+            box-shadow: 0 0 10px 4px #40dbf4;
+        }
+    }
+
+    .grid-item__link {
+        width: 100%;
+        height: 100%;
+    }
+
+    .grid-item__portal {
+        background-color: #00a5ff2e;
+    }
+
+    .grid-item__portal-admin {
+        background-color: #fff4002e;
     }
 
     .grid-item__bio {
@@ -146,6 +196,31 @@ body {
 .application-root .card-gen {
     max-width: 100%;
     margin: 0 auto;
+
+    .header .header__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        background-color: #40dbf4;
+        box-shadow: inset 0 0 40px 14px #282c34;
+        padding-block: 30px;
+
+        .header__title-icon {
+            width: auto;
+            margin: 0 20px 0 0;
+            color: #282c34;
+            text-shadow: 0 0 10px #282c34;
+            font-size: 1.3em;
+            margin-block: 1rem rem 0;
+        }
+
+        .header__title-text {
+            margin: 0;
+            color: #282c34;
+            text-shadow: 0 0 10px #282c34;
+        }
+    }
 
     .card-gen__input {
         margin-right: 20px;
@@ -187,17 +262,19 @@ body {
         width: 100%;
         margin-bottom: 20px;
         font-size: 1.7em;
-
         margin-inline: 0;
     }
 
     .card-gen__section--result {
+        align-self: normal;
+        flex: 1;
         margin-right: 20px;
         padding: 20px 40px;
         color: #40dbf4;
         border: 3px solid #273f5c;
-        font-size: 3.07em;
+        font-size: 2.9em;
         line-height: 1em;
+        text-align: center;
     }
 
     .card-gen__section--copy {

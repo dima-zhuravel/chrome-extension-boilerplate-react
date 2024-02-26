@@ -1,19 +1,29 @@
 import React from 'react';
+import { Tooltip } from 'react-tooltip';
 
 import GridPortal from './GridPortal';
 
 const stgUrls = [
-    { url: 'https://fabvegas-stg-admin.mhub2.com/home', bio: 'FV' },
-    { url: 'https://sunvegas-stg-admin.mhub2.com/home', bio: 'SV' },
-    { url: 'https://fabulousbingo-stg-admin.mhub2.com/home', bio: 'FB' },
-    { url: 'https://sunbingo-stg-admin.mhub2.com/home', bio: 'SB' }
+    { url: ['https://fabvegas-stg-admin.mhub2.com/home', 'https://fabvegas-stg-admin.mhub2.com/admin'], bio: 'FV' },
+    { url: ['https://sunvegas-stg-admin.mhub2.com/home', 'https://sunvegas-stg-admin.mhub2.com/admin'], bio: 'SV' },
+    {
+        url: ['https://fabulousbingo-stg-admin.mhub2.com/home', 'https://fabulousbingo-stg-admin.mhub2.com/admin'],
+        bio: 'FB'
+    },
+    { url: ['https://sunbingo-stg-admin.mhub2.com/home', 'https://sunbingo-stg-admin.mhub2.com/admin'], bio: 'SB' }
 ];
 
 const adminUrls = [
-    { url: 'https://portal-admin2.fabulousvegas.co.uk', bio: 'FV' },
-    { url: 'https://portal-admin2.thesunvegas.co.uk', bio: 'SV' },
-    { url: 'https://portal-admin2.fabulousbingo.co.uk', bio: 'FB' },
-    { url: 'https://portal-admin2.sunbingo.co.uk/', bio: 'SB' }
+    {
+        url: ['https://portal-admin2.fabulousvegas.co.uk', 'https://portal-admin2.fabulousvegas.co.uk/admin'],
+        bio: 'FV'
+    },
+    { url: ['https://portal-admin2.thesunvegas.co.uk', 'https://portal-admin2.thesunvegas.co.uk/admin'], bio: 'SV' },
+    {
+        url: ['https://portal-admin2.fabulousbingo.co.uk', 'https://portal-admin2.fabulousbingo.co.uk/admin'],
+        bio: 'FB'
+    },
+    { url: ['https://portal-admin2.sunbingo.co.uk', 'https://portal-admin2.sunbingo.co.uk/admin'], bio: 'SB' }
 ];
 
 const cdnUrls = [
@@ -32,10 +42,11 @@ const prodUrls = [
 
 const GridPortals = () => (
     <div className='portal__section'>
-        <GridPortal title='STG' icon='gem outline' linksArr={stgUrls} />
-        <GridPortal title='ADMN' icon='podcast' linksArr={adminUrls} />
-        <GridPortal title='PROD' icon='envira gallery' linksArr={prodUrls} />
-        <GridPortal title='CDN' icon='keycdn' linksArr={cdnUrls} />
+        <GridPortal title='STG' icon='gem outline' linksArr={stgUrls} tooltipId='portal-tooltip-id' />
+        <GridPortal title='ADMN' icon='podcast' linksArr={adminUrls} tooltipId='portal-tooltip-id' />
+        <GridPortal title='PROD' icon='envira gallery' linksArr={prodUrls} tooltipId='portal-tooltip-id' />
+        <GridPortal title='CDN' icon='keycdn' linksArr={cdnUrls} tooltipId='portal-tooltip-id' />
+        <Tooltip id='portal-tooltip-id' place='right' className='tooltip' />
     </div>
 );
 
