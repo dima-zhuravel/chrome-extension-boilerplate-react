@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import 'semantic-ui-css/semantic.css';
 
-import Menu from '../../Components/Menu';
-import GridPortals from '../../Components/GridPortals';
-import CardGenerator from '../../Components/CardGenerator';
-import GlobalStateProvider from '../../Components/GlobalStateProvider';
+import Menu from '../../components/Menu';
+import GridPortals from '../../components/GridPortals';
+import CardGenerator from '../../components/CardGenerator';
+import GlobalStateProvider from '../../components/GlobalStateProvider';
 import GlobalStateContext from '../../store/context';
 
 import './Popup.css';

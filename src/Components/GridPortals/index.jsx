@@ -11,10 +11,10 @@ const stgUrls = [
 
 const GridPortals = () => (
     <div className='portal__section'>
-        <GridPortal title='STAGE' icon='trophy' linksArr={stgUrls} />
+        <GridPortal title='STAGE' icon='gem outline' linksArr={stgUrls} />
         <GridPortal title='PORTAL ADMIN' icon='podcast' linksArr={stgUrls} />
         <GridPortal title='CDN' icon='keycdn' linksArr={stgUrls} />
-        <GridPortal title='PRODUCTION' icon='product hunt' linksArr={stgUrls} />
+        <GridPortal title='PRODUCTION' icon='envira gallery' linksArr={stgUrls} />
     </div>
 );
 
