@@ -193,10 +193,8 @@ body {
     padding-inline: 3.3rem;
 }
 
-.application-root .card-gen {
-    max-width: 100%;
-    margin: 0 auto;
-
+.application-root .card-gen,
+.application-root .fix-stamp {
     .header .header__title {
         display: flex;
         align-items: center;
@@ -222,18 +220,49 @@ body {
         }
     }
 
-    .card-gen__input {
-        margin-right: 20px;
+    .common__section--inner {
+        max-width: 100%;
+        margin: 0 auto;
+    }
 
-        &.input input {
+    .common__section {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .common__form-item {
+        &.input input,
+        &.textarea {
+            font-family: var(--font-family);
+        }
+
+        &.input input,
+        &.textarea,
+        &.dropdown {
             color: #40dbf4;
             border: 3px solid #273f5c;
             background-color: #282c34;
-            font-family: var(--font-family);
 
             &:focus,
             &:hover {
                 border-color: #40dbf4;
+            }
+
+            .menu {
+                border-color: #40dbf4;
+
+                & > .item {
+                    background-color: #282c34;
+                    color: #40dbf4;
+                    border-color: #40dbf4;
+                }
+            }
+
+            .selected,
+            .selected.item {
+                background: rgb(64 219 244);
+                color: rgb(40 44 52);
             }
         }
     }
@@ -242,13 +271,9 @@ body {
         color: #40dbf4;
         background-color: transparent;
     }
+}
 
-    .card-gen__section {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
+.application-root .card-gen {
     .card-gen__section--inner {
         display: flex;
         align-items: center;
@@ -292,6 +317,41 @@ body {
             color: #40dbf4 !important;
             border-color: #40dbf4;
             background-color: #282c34 !important;
+        }
+    }
+}
+
+.fix-stamp__section {
+    .fix-stamp__item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .textarea {
+        height: 75px;
+        resize: none;
+        padding: 10px 14px;
+        border-radius: 0.28571429rem;
+        outline: none;
+    }
+
+    .fix-stamp__actions {
+        display: flex;
+
+        .message {
+            margin-top: 0;
+        }
+
+        .fix-stamp__button {
+            height: 48px;
+            margin-right: 20px;
+            color: #40dbf4 !important;
+            border: 3px solid #273f5c;
+            background-color: #282c34 !important;
+
+            .icon {
+                margin-right: 5px !important;
+            }
         }
     }
 }

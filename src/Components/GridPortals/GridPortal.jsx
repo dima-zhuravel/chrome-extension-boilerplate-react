@@ -1,12 +1,15 @@
 import React from 'react';
-import { GridRow, GridColumn, Grid } from 'semantic-ui-react';
+import { GridRow, GridColumn, Grid, Header, Icon } from 'semantic-ui-react';
 import { uid } from 'react-uid';
-
-import HeadTitle from '../HeadTitle';
 
 const GridPortal = ({ linksArr, title, icon, tooltipId }) => (
     <Grid>
-        <HeadTitle title={title} icon={icon} />
+        <Header as='h2' icon>
+            <span className='header__title'>
+                <Icon className='header__title-icon' name={icon} />
+                <span className='header__title-text'>{title}</span>
+            </span>
+        </Header>
         <GridRow columns={4}>
             {linksArr.map(({ url, bio }, index) => (
                 <GridColumn key={uid(bio, index)}>

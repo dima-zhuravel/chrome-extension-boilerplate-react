@@ -25,6 +25,11 @@ const MenuComponent = () => {
                 Card
             </MenuItem>
 
+            <MenuItem name='fixStamp' active={activeItem === 'fixStamp'} onClick={handleItemClick}>
+                <Icon name='pin' />
+                Fix Stamp
+            </MenuItem>
+
             <MenuItem name='soon'>
                 <Icon name='ellipsis horizontal' />
                 Soon

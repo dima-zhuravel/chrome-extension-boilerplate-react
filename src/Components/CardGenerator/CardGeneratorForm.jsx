@@ -31,20 +31,20 @@ const CardGeneratorForm = () => {
     };
 
     return (
-        <div className='card-gen__section'>
-            <div className='card-gen__section--inner card-gen__section--input'>
+        <div className='common__section card-gen__section'>
+            <div className='common__section--inner card-gen__section--inner card-gen__section--input'>
                 <Input
                     defaultValue={bin}
                     onChange={(e) => setBin(e.target.value)}
                     placeholder='BIN'
-                    className='card-gen__item card-gen__input card-gen__number'
+                    className='common__form-item card-gen__item card-gen__input'
                     icon={<Icon name='credit card outline' />}
                 />
                 <Input
                     defaultValue={length.toString()}
                     onChange={(e) => setLength(parseInt(e.target.value, 10))}
                     placeholder='Card Length'
-                    className='card-gen__item card-gen__input card-gen__digits'
+                    className='common__form-item card-gen__item card-gen__input'
                     icon={<Icon name='paw' />}
                 />
                 <Button onClick={onClickHandler} content='GENERATE' basic size='medium' className='card-gen__item' />

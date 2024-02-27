@@ -5,6 +5,7 @@ import Menu from '../../components/Menu';
 import GridPortals from '../../components/GridPortals';
 import CardGenerator from '../../components/CardGenerator';
 import GlobalStateProvider from '../../components/GlobalStateProvider';
+import FixStampGenerator from '../../components/FixStampGenerator';
 import GlobalStateContext from '../../store/context';
 
 import './Popup.css';
@@ -18,6 +19,7 @@ const PopupContent = () => {
             <Menu />
             {state.navigation.activeMenu === 'home' && <GridPortals />}
             {state.navigation.activeMenu === 'creditCard' && <CardGenerator />}
+            {state.navigation.activeMenu === 'fixStamp' && <FixStampGenerator />}
         </div>
     );
 };
