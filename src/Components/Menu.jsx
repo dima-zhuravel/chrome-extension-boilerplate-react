@@ -30,7 +30,7 @@ const MenuComponent = () => {
                 Fix Stamp
             </MenuItem>
 
-            <MenuItem name='soon'>
+            <MenuItem name='userRegistration' active={activeItem === 'userRegistration'} onClick={handleItemClick}>
                 <Icon name='user circle' />
                 User Registration
             </MenuItem>

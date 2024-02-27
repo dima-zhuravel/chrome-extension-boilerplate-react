@@ -8,25 +8,22 @@ const FixStampGeneratorForm = () => {
     const [formValues, setFormValues] = useState({
         whatWasDone: null,
         affectedAreas: null,
-        levelOfImplementation: 'code',
+        levelOfImplementation: null,
         mergeRequestUrl: null
     });
     const [copied, setIsCopied] = useState(null);
     const [isValid, setIsValid] = useState(null);
     const [fixStamp, setFixStamp] = useState(false);
+    const isCmsOnly = formValues.levelOfImplementation === 'cms';
 
     useEffect(() => {
         console.log('formValues', { formValues });
     }, [formValues]);
 
     const onChangeHandler = ({ target }) => {
-        if (!target.name) {
-            return null;
-        }
-
         setFormValues({
             ...formValues,
-            [target.name]: target.value
+            [target.name || 'levelOfImplementation']: target.value || target.innerText || ''
         });
     };
 
@@ -40,18 +37,26 @@ const FixStampGeneratorForm = () => {
     };
 
     const onValidateHandler = () => {
-        const arrayOfAnswers = Object.values(formValues);
-        const isAllFieldsFilled = arrayOfAnswers.every((value) => !!value);
+        const arrayOfAnswers = Object.entries(formValues);
+        const isAllFieldsFilled = arrayOfAnswers.every(([key, value], _, arr) => {
+            if (key === 'mergeRequestUrl' && arr[2][1] === 'cms') {
+                return true;
+            }
+
+            return !!value;
+        });
         setIsValid(isAllFieldsFilled);
 
         if (isAllFieldsFilled) {
+            const mergeRequestValue = isCmsOnly ? '-' : `[GitLab|${formValues.mergeRequestUrl}]`;
+
             setFixStamp(`
                 {panel:title=Fix stamp|borderColor=#828282|titleBGColor=#86bbd6|bgColor=#d7e8f0}
                     |*What was done:*|${formValues.whatWasDone}|
                     |*Affected areas:*|${formValues.affectedAreas}|
                     |*Level of implementation (Code/CMS/Custom js):*|${formValues.levelOfImplementation}|
-                    |*Merge Request URL:*|[GitLab|${formValues.mergeRequestUrl}]|
-                    |Merge to Branch|[master]|
+                    |*Merge Request URL:*|${mergeRequestValue}|
+                    |Merge to Branch|${isCmsOnly ? '-' : '[master]'}|
                 {panel}
             `);
         }
@@ -78,27 +83,28 @@ const FixStampGeneratorForm = () => {
                     fluid
                     selection
                     options={OPTIONS}
-                    onBlur={onChangeHandler}
+                    onChange={onChangeHandler}
                     name='levelOfImplementation'
                 />
-                <Input
-                    className='common__form-item fix-stamp__item'
-                    placeholder='Merge Request URL'
-                    onBlur={onChangeHandler}
-                    name='mergeRequestUrl'
-                    icon={<Icon name='gitlab' />}
-                />
-
+                {!isCmsOnly && (
+                    <Input
+                        className='common__form-item fix-stamp__item'
+                        placeholder='Merge Request URL'
+                        onBlur={onChangeHandler}
+                        name='mergeRequestUrl'
+                        icon={<Icon name='gitlab' />}
+                    />
+                )}
                 <div className='fix-stamp__actions'>
                     <Button icon className='fix-stamp__button' content='Validate' onClick={onValidateHandler}>
                         <Icon name='clipboard check' />
-                        <span class='fix-stamp__button--text'>VALIDATE</span>
+                        <span className='fix-stamp__button--text'>VALIDATE</span>
                     </Button>
                     {isValid && !copied && (
                         <CopyToClipboard text={fixStamp} onCopy={onCopyHandler}>
                             <Button icon className='fix-stamp__button'>
                                 <Icon name='copy' />
-                                <span class='fix-stamp__button--text'>GENERATE TO CLIPBOARD</span>
+                                <span className='fix-stamp__button--text'>GENERATE TO CLIPBOARD</span>
                             </Button>
                         </CopyToClipboard>
                     )}

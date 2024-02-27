@@ -24,6 +24,7 @@ body {
 
 .ui.link.menu .item:hover,
 .ui.menu .dropdown.item:hover,
+.visible.menu .item:hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
 .ui.menu .active.item:hover,
@@ -42,7 +43,7 @@ body {
 
         .header__title-text {
             text-shadow: 0 0 10px #40dbf4;
-
+            user-select: none;
             margin-block: 0.3rem 1.2rem;
         }
 
@@ -194,7 +195,8 @@ body {
 }
 
 .application-root .card-gen,
-.application-root .fix-stamp {
+.application-root .fix-stamp,
+.application-root .user-registration {
     .header .header__title {
         display: flex;
         align-items: center;
@@ -208,7 +210,7 @@ body {
             width: auto;
             margin: 0 20px 0 0;
             color: #282c34;
-            text-shadow: 0 0 10px #282c34;
+            text-shadow: 0 0 10px yellow;
             font-size: 1.3em;
             margin-block: 1rem rem 0;
         }
@@ -217,6 +219,7 @@ body {
             margin: 0;
             color: #282c34;
             text-shadow: 0 0 10px #282c34;
+            user-select: none;
         }
     }
 
