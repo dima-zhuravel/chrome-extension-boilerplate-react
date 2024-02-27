@@ -221,8 +221,13 @@ body {
     }
 
     .common__section--inner {
-        max-width: 100%;
-        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 600px;
+        margin-inline: 100px;
     }
 
     .common__section {
@@ -274,23 +279,15 @@ body {
 }
 
 .application-root .card-gen {
-    .card-gen__section--inner {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        margin-inline: 100px;
-    }
-
     .card-gen__item {
         width: 100%;
         margin-bottom: 20px;
-        font-size: 1.7em;
+        font-size: 1.3em;
         margin-inline: 0;
     }
 
     .card-gen__section--result {
+        overflow: hidden;
         align-self: normal;
         flex: 1;
         margin-right: 20px;
@@ -300,6 +297,8 @@ body {
         font-size: 2.9em;
         line-height: 1em;
         text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .card-gen__section--copy {
@@ -325,6 +324,7 @@ body {
     .fix-stamp__item {
         width: 100%;
         margin-bottom: 20px;
+        font-size: 1.3em;
     }
 
     .textarea {
@@ -335,19 +335,34 @@ body {
         outline: none;
     }
 
+    .dropdown {
+        .menu > .item {
+            font-size: 1.3em;
+        }
+    }
+
     .fix-stamp__actions {
         display: flex;
 
         .message {
+            display: flex;
+            align-items: center;
             margin-top: 0;
+            font-size: 1.3em;
+            padding-block: 0;
         }
 
         .fix-stamp__button {
-            height: 48px;
+            height: 53px;
             margin-right: 20px;
             color: #40dbf4 !important;
             border: 3px solid #273f5c;
             background-color: #282c34 !important;
+            font-size: 1.3em;
+
+            &:hover {
+                border-color: #40dbf4;
+            }
 
             .icon {
                 margin-right: 5px !important;

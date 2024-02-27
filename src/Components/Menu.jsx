@@ -26,13 +26,13 @@ const MenuComponent = () => {
             </MenuItem>
 
             <MenuItem name='fixStamp' active={activeItem === 'fixStamp'} onClick={handleItemClick}>
-                <Icon name='pin' />
+                <Icon name='xing' />
                 Fix Stamp
             </MenuItem>
 
             <MenuItem name='soon'>
-                <Icon name='ellipsis horizontal' />
-                Soon
+                <Icon name='user circle' />
+                User Registration
             </MenuItem>
         </Menu>
     );

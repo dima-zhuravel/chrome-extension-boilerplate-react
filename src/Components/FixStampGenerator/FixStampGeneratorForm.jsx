@@ -86,18 +86,19 @@ const FixStampGeneratorForm = () => {
                     placeholder='Merge Request URL'
                     onBlur={onChangeHandler}
                     name='mergeRequestUrl'
+                    icon={<Icon name='gitlab' />}
                 />
 
                 <div className='fix-stamp__actions'>
                     <Button icon className='fix-stamp__button' content='Validate' onClick={onValidateHandler}>
-                        <Icon name='copy' />
-                        <span class='fix-stamp__button--text'>Validate</span>
+                        <Icon name='clipboard check' />
+                        <span class='fix-stamp__button--text'>VALIDATE</span>
                     </Button>
                     {isValid && !copied && (
                         <CopyToClipboard text={fixStamp} onCopy={onCopyHandler}>
                             <Button icon className='fix-stamp__button'>
                                 <Icon name='copy' />
-                                <span class='fix-stamp__button--text'>Generate to Clipboard</span>
+                                <span class='fix-stamp__button--text'>GENERATE TO CLIPBOARD</span>
                             </Button>
                         </CopyToClipboard>
                     )}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Icon, Input, Button } from 'semantic-ui-react';
+import { Icon, Input, Button, Message } from 'semantic-ui-react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { generate, luhnChk } from '../../helpers/cardGenerator';
@@ -30,6 +30,8 @@ const CardGeneratorForm = () => {
         setIsCopied(true);
     };
 
+    const isValidCard = parseInt(cardNumber);
+
     return (
         <div className='common__section card-gen__section'>
             <div className='common__section--inner card-gen__section--inner card-gen__section--input'>
@@ -50,14 +52,20 @@ const CardGeneratorForm = () => {
                 <Button onClick={onClickHandler} content='GENERATE' basic size='medium' className='card-gen__item' />
             </div>
             {cardNumber && !copied && (
-                <div className='card-gen__section--inner card-gen__section--output'>
-                    <span className='card-gen__section--result'>{cardNumber}</span>
+                <div className='common__section--inner card-gen__section--inner card-gen__section--output'>
+                    {isValidCard ? (
+                        <>
+                            <span className='card-gen__section--result'>{cardNumber}</span>
 
-                    <CopyToClipboard text={cardNumber} onCopy={onCopyHandler}>
-                        <Button icon className='card-gen__section--copy'>
-                            <Icon name='copy' />
-                        </Button>
-                    </CopyToClipboard>
+                            <CopyToClipboard text={cardNumber} onCopy={onCopyHandler}>
+                                <Button icon className='card-gen__section--copy'>
+                                    <Icon name='copy' />
+                                </Button>
+                            </CopyToClipboard>
+                        </>
+                    ) : (
+                        <Message floating error content={cardNumber} />
+                    )}
                 </div>
             )}
         </div>
